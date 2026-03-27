@@ -1,0 +1,20 @@
+# Comenzi CTF — Referință Rapidă
+
+1.
+`file [fisier]` — Identifică tipul real al fișierului prin magic bytes, indiferent de extensie
+`stat [fisier]` — Afișează metadate: dimensiune, timestamps, permisiuni
+`xxd [fisier]` — Hex dump complet, vizualizare bytes în hex și ASCII simultan
+`xxd [fisier] | grep -i [string]` — Caută un string specific în hex dump
+`unrar x [arhiva]` — Extrage arhivă RAR cu structura de foldere
+`7z l -slt [arhiva]` — Listare tehnică universală, toate formatele, toate obiectele, toate detaliile
+`strings [fisier]` — Extrage toate șirurile ASCII printabile dintr-un fișier binar
+
+2.
+`ping -c [nr] [ip]` — verifică conectivitatea la nivel de rețea și măsoară latența către un server
+`curl -I [url]` — cerere HTTP HEAD, returnează doar headers pentru fingerprinting rapid fără a descărca body-ul
+`curl -i [url]` — cerere HTTP GET completă cu headers și body vizibile simultan în output
+`curl [url]` — returnează doar body-ul paginii, util pentru citirea conținutului HTML brut
+`curl [url]/robots.txt` — primul fișier de verificat pe orice server web, listează rutele excluse din indexare
+`curl [url]/sitemap.xml` — harta completă a site-ului, dezvăluie toate rutele existente
+
+3.
