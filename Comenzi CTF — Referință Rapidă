@@ -38,8 +38,20 @@
 `xdg-open [fisier]` — deschide un fișier cu aplicația implicită a sistemului, echivalentul dublu-click în terminal
 
 
+5.
+`nc [ip] [port]` — deschide conexiune TCP brută la un server, tot ce scrii merge la server și tot ce trimite serverul apare în terminal, folosit pentru orice serviciu non-HTTP
+`chmod +x [fisier]` — adaugă permisiunea de execuție unui fișier, obligatoriu înainte de a rula un binar descărcat
+`./[fisier]` — rulează un executabil din directorul curent
+`strings [fisier] | grep -i "[pattern]"` — filtrează string-urile ASCII ale unui binar după un pattern specific
+`ghidra` — deschide Ghidra pentru analiza statică a binarelor, decompilează cod mașină în pseudocod C lizibil
 
 
+6.
+`flask-unsign --decode --cookie "[cookie]"` — decodează și afișează payload-ul unui cookie Flask fără să verifice semnătura, nu necesită cheia secretă
+`flask-unsign --verify --cookie "[cookie]" --secret "[cheie]"` — verifică dacă o cheie secretă specifică este corectă pentru un cookie, returnează True sau False
+`flask-unsign --unsign --cookie "[cookie]" --wordlist [fisier] --no-literal-eval` — brute-force pe wordlist pentru găsirea cheii secrete, `--no-literal-eval` tratează fiecare linie ca string pur evitând erorile pe numere
+`flask-unsign --sign --cookie "{'cheie': 'valoare'}" --secret "[cheie]"` — creează un cookie nou falsificat semnat cu cheia secretă găsită
+`curl [url] --cookie "session=[cookie]"` — trimite o cerere HTTP cu un cookie specific, folosit pentru a trimite cookie-ul falsificat la server
 
 
 
